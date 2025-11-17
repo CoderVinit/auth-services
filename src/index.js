@@ -61,8 +61,23 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.use("/api/auth", authRouter);
-app.use("/api/user", userRouter);
+// Middleware to check DB connection before processing routes
+const ensureDBConnected = (req, res, next) => {
+  if (!dbState.connected) {
+    return res.status(503).json({
+      success: false,
+      message: "Database connection not ready. Please try again in a few seconds.",
+      db: {
+        connected: false,
+        lastError: dbState.lastError?.message
+      }
+    });
+  }
+  next();
+};
+
+app.use("/api/auth", ensureDBConnected, authRouter);
+app.use("/api/user", ensureDBConnected, userRouter);
 
 // Start server and connect to DB in background with retry
 app.listen(PORT, () => {
