@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  auth-service:
+    build: .
+    container_name: auth-service
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - MONGODB_URI=mongodb://mongo:27017/auth-db
+      - RABBITMQ_URL=amqp://app:app@rabbitmq:5672
+    env_file:
+      - .env
+    ports:
+      - "3001:3001"
+    restart: unless-stopped
+    networks:
+      - micro-net
+
+networks:
+  micro-net:
+    name: micro-net

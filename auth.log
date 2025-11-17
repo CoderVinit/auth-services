@@ -1,0 +1,27 @@
+
+> auth-service@1.0.0 start
+> node src/index.js
+
+[dotenv@17.2.3] injecting env (9) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+✅ MongoDB Connected: localhost
+🚀 Auth Service running on port 3001
+BadRequestError: request aborted
+    at IncomingMessage.onAborted (D:\Learning\micro-services\services\auth-service\node_modules\raw-body\index.js:245:10)
+    at IncomingMessage.emit (node:events:507:28)
+    at IncomingMessage._destroy (node:_http_incoming:221:10)
+    at _destroy (node:internal/streams/destroy:122:10)
+    at IncomingMessage.destroy (node:internal/streams/destroy:84:5)
+    at abortIncoming (node:_http_server:809:9)
+    at socketOnClose (node:_http_server:803:3)
+    at Socket.emit (node:events:519:35)
+    at TCP.<anonymous> (node:net:351:12)
+BadRequestError: request aborted
+    at IncomingMessage.onAborted (D:\Learning\micro-services\services\auth-service\node_modules\raw-body\index.js:245:10)
+    at IncomingMessage.emit (node:events:507:28)
+    at IncomingMessage._destroy (node:_http_incoming:221:10)
+    at _destroy (node:internal/streams/destroy:122:10)
+    at IncomingMessage.destroy (node:internal/streams/destroy:84:5)
+    at abortIncoming (node:_http_server:809:9)
+    at socketOnClose (node:_http_server:803:3)
+    at Socket.emit (node:events:519:35)
+    at TCP.<anonymous> (node:net:351:12)
